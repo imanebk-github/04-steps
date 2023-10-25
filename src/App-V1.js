@@ -39,10 +39,13 @@ function Steps() {
             Step {step}: {messages[step - 1]}
           </p>
           <div className="buttons">
-           < Button bgColor="#525FE1" textColor="#fff" text='Previous' onClick={handlePrevious}/>
-           < Button bgColor="#525FE1" textColor="#fff" text='Next' onClick={handleAfter}/>
-
-          
+            <Button bgColor="#525FE1" textColor="#fff" onClick={handlePrevious}>
+              <span>👈</span>
+              Previous
+            </Button>
+            <Button bgColor="#525FE1" textColor="#fff" onClick={handleAfter}>
+              Next<span>👉</span>
+            </Button>
           </div>
         </div>
       )}
@@ -50,13 +53,13 @@ function Steps() {
   );
 }
 
-function Button({ textColor, bgColor onClick, text}) {
+function Button({ textColor, bgColor, onClick, children }) {
   return (
     <button
       style={{ backgroundColor: bgColor, color: textColor }}
       onClick={onClick}
     >
-      {text}
+      {children}
     </button>
   );
 }
